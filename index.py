@@ -1,31 +1,45 @@
 import sys
 import random
 
-print("")
+playagain = True
 
-playerchoice = input("Enter ... \n1 for rock, \n2 for paper, or \n3 for scissors: \n\n")
+while playagain:
+    print("")
 
-player = int(playerchoice)
+    playerchoice = input("Enter ... \n1 for rock, \n2 for paper, or \n3 for scissors: \n\n")
 
-if player < 1 | player > 3:
-    sys.exit("You must enter 1, 2, or 3")
+    player = int(playerchoice)
 
-computerchoice = random.choice('123')
+    if player < 1 | player > 3:
+        sys.exit("You must enter 1, 2, or 3")
 
-computer = int(computerchoice)
+    computerchoice = random.choice('123')
 
-print("")
-print("You chose " + playerchoice + ".")
-print("Python chose " + computerchoice + ".")
-print("")
+    computer = int(computerchoice)
 
-if player == 1 and computer == 3:
-    print("🥳 You win!")
-elif player == 2 and computer == 1:
-    print("🥳 You win!")
-elif player == 3 and computer == 2:
-    print("🥳 You win!")
-elif player == computer:
-    print("😲 Tie game!")
-else:
-    print("🐍 Python wins!")
+    print("")
+    print("You chose " + playerchoice + ".")
+    print("Python chose " + computerchoice + ".")
+    print("")
+
+    if player == 1 and computer == 3:
+        print("🥳 You win!")
+    elif player == 2 and computer == 1:
+        print("🥳 You win!")
+    elif player == 3 and computer == 2:
+        print("🥳 You win!")
+    elif player == computer:
+        print("😲 Tie game!")
+    else:
+        print("🐍 Python wins!")
+
+    playagain = input('\nPlay again? \nY for yes or \n Q for Quit \n\n')
+
+    if playagain.lower() == 'y':
+        continue
+    else:
+        print('\n🎉🎉🎉🎉')
+        print("Thank you for palying")
+        break
+
+sys.exit("Bye! 👋")
